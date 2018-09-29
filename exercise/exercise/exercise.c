@@ -26,22 +26,45 @@
 //}
 
 //练习4.2
+//#include <stdio.h>
+//#include <stdlib.h>
+//
+//int main(){
+//	int i = 0;
+//	int g,s,b;
+//	printf("0~999之间的水仙花数为：\n");
+//	for (i; i < 1000; i++){
+//		g = i % 10;
+//		s = i / 10 - (i / 100)*10;
+//		b = i / 100;
+//		if (i ==g*g*g+s*s*s+b*b*b){
+//			printf("%d  ", i);
+//		}
+//	}
+//	printf("\n");
+//	system("pause");
+//	return 0;
+//}
+
+//练习4.3
+#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include <stdlib.h>
 
 int main(){
-	int i = 0;
-	int g,s,b;
-	printf("0~999之间的水仙花数为：\n");
-	for (i; i < 1000; i++){
-		g = i % 10;
-		s = i / 10 - (i / 100)*10;
-		b = i / 100;
-		if (i ==g*g*g+s*s*s+b*b*b){
-			printf("%d  ", i);
-		}
-	}
-	printf("\n");
+	int fir;
+	int sec;
+	int th;
+	int fou;
+	int fif;
+	printf("请输入一个个位数：\n");
+	scanf("%d", &fir);
+	sec = fir * 10 + fir;
+	th = fir*100+fir * 10 + fir;
+	fou = fir * 1000 + fir * 100 + fir * 10 + fir;
+	fif = fir * 10000 + fir * 1000 + fir * 100 + fir * 10 + fir;
+	int add = fir + sec + th + fou + fif;
+	printf("%d\n", add);
 	system("pause");
 	return 0;
 }
