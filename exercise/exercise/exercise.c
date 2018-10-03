@@ -47,27 +47,41 @@
 //}
 
 //练习4.3
-#define _CRT_SECURE_NO_WARNINGS
+//#define _CRT_SECURE_NO_WARNINGS
+//#include <stdio.h>
+//#include <stdlib.h>
+//
+//int main(){
+//	int fir;
+//	int sec;
+//	int th;
+//	int fou;
+//	int fif;
+//	printf("请输入一个个位数：\n");
+//	scanf("%d", &fir);
+//	sec = fir * 10 + fir;
+//	th = fir*100+fir * 10 + fir;
+//	fou = fir * 1000 + fir * 100 + fir * 10 + fir;
+//	fif = fir * 10000 + fir * 1000 + fir * 100 + fir * 10 + fir;
+//	int add = fir + sec + th + fou + fif;
+//	printf("%d\n", add);
+//	system("pause");
+//	return 0;
+//}
+
+//例题练习
 #include <stdio.h>
 #include <stdlib.h>
 
 int main(){
-	int fir;
-	int sec;
-	int th;
-	int fou;
-	int fif;
-	printf("请输入一个个位数：\n");
-	scanf("%d", &fir);
-	sec = fir * 10 + fir;
-	th = fir*100+fir * 10 + fir;
-	fou = fir * 1000 + fir * 100 + fir * 10 + fir;
-	fif = fir * 10000 + fir * 1000 + fir * 100 + fir * 10 + fir;
-	int add = fir + sec + th + fou + fif;
-	printf("%d\n", add);
+
+
 	system("pause");
 	return 0;
 }
+
+
+
 
 
 
