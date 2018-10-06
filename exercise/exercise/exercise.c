@@ -74,7 +74,21 @@
 #include <stdlib.h>
 
 int main(){
+	int i = 0;
+	for (; i < 3; ++i){
+		char password[1024] = { 0 };
+		printf("ÇëÊäÈëÃÜÂë£º")£»
+			scanf("%s", password);
+		if (strcmp(password, "123456") == 0){
+			printf("µÇÂ½³É¹¦\n");
+			break;
+		}
+	}
+	if (i == 3){
+	}
+	else{
 
+	}
 
 	system("pause");
 	return 0;
