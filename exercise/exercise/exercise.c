@@ -94,7 +94,7 @@
 //	return 0;
 //}
 
-////第二节
+////第一节
 //#include <stdio.h>
 //#include <stdlib.h>
 //
@@ -108,17 +108,134 @@
 //	return 0;
 //}
 
-//笔试题
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
+////笔试题
+//#include <stdio.h>
+//#include <stdlib.h>
+//#include <string.h>
+//
+//int main(){
+//	printf("%d\n", strlen("c:\test\32\test.c"));
+//
+//	system("pause");
+//	return 0;
+//}
 
-int main(){
-	printf("%d\n", strlen("c:\test\32\test.c"));
+////函数
+//#include <stdio.h>
+//#include <stdlib.h>
+//#include <string.h>
+//
+//int Add(int x, int y){
+//	return x + y;
+//}
+//
+//int main(){
+//	int sum = Add(10, 20);
+//	printf("sum=%d\n", sum);
+//
+//	system("pause");
+//	return 0;
+//}
 
-	system("pause");
-	return 0;
-}
+////结构体
+//#include <stdio.h>
+//#include <stdlib.h>
+//
+//struct Student{
+//	//结构体中包含的成员/属性
+//	char name[1024];  //1024Bytes=1KB
+//	int age;
+//};
+//
+//int main(){
+//	struct Student zhang{ "张三", 20 };
+//	struct Student li{ "李四", 30 };
+//
+//	printf("%s,%s\n", zhang.name, li.name); //zhang.name中的. 取结构体中的某一个成员/属性
+//
+//	system("pause");
+//	return 0;
+//}
 
+////同上
+//#include <stdio.h>
+//#include <stdlib.h>
+//
+//typedef struct Student{
+//	//结构体中包含的成员/属性
+//	char name[1024];  //1024Bytes=1KB
+//	int age;
+//} Stu;
+//
+//int main(){
+//	Stu zhang{ "张三", 20 };
+//	Stu li{ "李四", 30 };
+//
+//	printf("%s,%s\n", zhang.name, li.name); //zhang.name中的. 取结构体中的某一个成员/属性
+//
+//	system("pause");
+//	return 0;
+//}
 
+////打印1-100的奇数
+//#include <stdio.h>
+//#include <stdlib.h>
+//
+//int IsOdd(int x){
+//	if (x % 2 == 0){
+//		return 0;
+//	}
+//	return 1;
+//}
+//
+//int main(){
+//	int i = 1;
+//	while (i < 101){
+//		if (IsOdd(1)){
+//			printf("%d\n", i);
+//		}
+//		i++;
+//	}
+//	system("pause");
+//	return 0;
+//}
 
+////笔试
+//#include <stdio.h>
+//
+//int main()
+//{
+//	int i = 0;
+//	int k = 0;
+//	for (i = 0, k = 0; k = 0; i++, k++)
+//		k++;
+//	return 0;
+//}
+
+////练习****
+//#include <stdio.h>
+//#include <stdlib.h>
+//#include <string.h>
+//#include <Windows.h>
+//
+//int main(){
+//	char str1[] = "hello good girl!";
+//	char str1[] = "****************";
+//	int left = 0; //该下标指向的元素为 w
+//	int right = strlen(str1) - 1; //该下标指向的元素为 ！
+//
+//	printf("%s\n", str2);
+//	while (left <= right){
+//		Sleep(100); //休眠100毫秒
+//		str2[left] = str1[left];
+//		str2[right] = str1[right];
+//		printf("%s\n", str2);
+//		left++;
+//		right--;
+//	}
+//
+//	system("pause");
+//	return 0;
+//}
+
+//9.29
