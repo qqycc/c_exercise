@@ -69,34 +69,56 @@
 //	return 0;
 //}
 
-//例题练习
+////例题练习
+//#include <stdio.h>
+//#include <stdlib.h>
+//
+//int main(){
+//	int i = 0;
+//	for (; i < 3; ++i){
+//		char password[1024] = { 0 };
+//		printf("请输入密码：")；
+//			scanf("%s", password);
+//		if (strcmp(password, "123456") == 0){
+//			printf("登陆成功\n");
+//			break;
+//		}
+//	}
+//	if (i == 3){
+//	}
+//	else{
+//
+//	}
+//
+//	system("pause");
+//	return 0;
+//}
+
+////第二节
+//#include <stdio.h>
+//#include <stdlib.h>
+//
+//int main(){
+//	// 打印目录c:\test.c
+//	printf("c:\test.c");  //错误的写法 \t会被当做转义字符，以制表符的形式打印
+//	//正确写法
+//	printf("c:\\test.c");
+//
+//	system("pause");
+//	return 0;
+//}
+
+//笔试题
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 int main(){
-	int i = 0;
-	for (; i < 3; ++i){
-		char password[1024] = { 0 };
-		printf("请输入密码：")；
-			scanf("%s", password);
-		if (strcmp(password, "123456") == 0){
-			printf("登陆成功\n");
-			break;
-		}
-	}
-	if (i == 3){
-	}
-	else{
-
-	}
+	printf("%d\n", strlen("c:\test\32\test.c"));
 
 	system("pause");
 	return 0;
 }
-
-
-
-
 
 
 
