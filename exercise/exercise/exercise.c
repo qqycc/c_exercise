@@ -212,30 +212,30 @@
 //	return 0;
 //}
 
-////练习****
-//#include <stdio.h>
-//#include <stdlib.h>
-//#include <string.h>
-//#include <Windows.h>
-//
-//int main(){
-//	char str1[] = "hello good girl!";
-//	char str1[] = "****************";
-//	int left = 0; //该下标指向的元素为 w
-//	int right = strlen(str1) - 1; //该下标指向的元素为 ！
-//
-//	printf("%s\n", str2);
-//	while (left <= right){
-//		Sleep(100); //休眠100毫秒
-//		str2[left] = str1[left];
-//		str2[right] = str1[right];
-//		printf("%s\n", str2);
-//		left++;
-//		right--;
-//	}
-//
-//	system("pause");
-//	return 0;
-//}
+//练习****
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <Windows.h> //Sleep
+
+int main(){
+	char str1[] = "hello good girl!";
+	char str1[] = "****************";
+	int left = 0; //该下标指向的元素为 w
+	int right = strlen(str1) - 1; //该下标指向的元素为 ！
+
+	printf("%s\n", str2);
+	while (left <= right){
+		Sleep(100); //休眠100毫秒
+		str2[left] = str1[left];
+		str2[right] = str1[right];
+		printf("%s\n", str2);
+		left++;
+		right--;
+	}
+
+	system("pause");
+	return 0;
+}
 
 //9.29
