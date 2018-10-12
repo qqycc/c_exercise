@@ -255,9 +255,9 @@
 //}
 //
 //void Game(){
-//	//计算机生成随机数
+//	计算机生成随机数
 //	int result = rand( ) % 100 + 1;
-//	//让用户输入所猜数字
+//	让用户输入所猜数字
 //	int num;
 //	printf("请输入一个数字:\n");
 //	while (1){
@@ -275,11 +275,11 @@
 //}
 //
 //int main(){
-//	//创建一个循环
+//	创建一个循环
 //	while (1){
-//		//打印菜单，供用户选择
+//		打印菜单，供用户选择
 //		int choice=Menu();
-//		//若用户选择进入游戏，则开始游戏
+//		若用户选择进入游戏，则开始游戏
 //		if (choice == 1){
 //			Game();
 //		}//若用户选择退出游戏，则结束循环
@@ -296,48 +296,101 @@
 //}
 
 //5.2折半查找
-#define _CRT_SECURE_NO_WARNINGS
-#include <stdio.h>
-#include <stdlib.h>
+//#include <stdio.h>
+//#include <stdlib.h>
+//
+//int BinarySearch(int arr[],int left,int right,int key){
+//	int mid;
+//
+//	while (left < right){
+//		//折半查找：中间数=头加尾/2
+//		mid = (left + right) / 2;
+//		//若大于所求数，则尾的下标改为中间数-1
+//		if (arr[mid]>key){   
+//			right = mid - 1;
+//		}//若小于所求数，则头的下标改为中间数+1
+//		else if (arr[mid]<key){
+//			left = mid + 1;
+//		}
+//		else{
+//			return mid;
+//		}
+//	}
+//	return -1;
+//}
+//
+//int main(){
+//	int arr[] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15 };
+//	int left = 0;
+//	int right = sizeof(arr) / sizeof(arr[0])-1;//right是下标
+//	int key = 14;
+//	int result = BinarySearch( arr, left, right, key);
+//	if (result == -1){
+//		printf("找不到\n");
+//	}
+//	else {
+//		printf("找到了，下标是：%d\n", result);
+//	}
+//	system("pause");
+//	return 0;
+//}
 
-int BinarySearch(int arr[],int left,int right,int key){
-	int mid;
+//5.3输密码密码正确，提示“登录成功”,密码错误，可以重新输入，最多输入三次。三次均错，则提示退出程序。
+//#define _CRT_SECURE_NO_WARNINGS
+//#include <stdio.h>
+//#include <stdlib.h>
+//
+//int main(){
+//	char password[1024]="123456";
+//	char pass[1024];
+//	
+//	for (int i = 0; i < 3; i++){
+//		printf("请输入密码：\n");
+//		scanf("%s", pass);
+//		if (strcmp(pass, password) == 0){
+//			printf("登录成功\n");
+//			break;
+//		}//如果输入3次，停止输入
+//		else if (i != 2){
+//				printf("输入错误，请重新输入\n");
+//			}
+//		else{
+//				printf("您已输错三次，退出系统\n");
+//				break;
+//			}
+//	}
+//	system("pause");
+//	return 0;
+//}
 
-	while (left < right){
-		//折半查找：中间数=头加尾/2
-		mid = (left + right) / 2;
-		//若大于所求数，则尾的下标改为中间数-1
-		if (arr[mid]>key){   
-			right = mid - 1;
-		}//若小于所求数，则头的下标改为中间数+1
-		else if (arr[mid]<key){
-			left = mid + 1;
-		}
-		else{
-			return mid;
-		}
-	}
-	return -1;
-}
-
-int main(){
-	int arr[] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15 };
-	int left = 0;
-	int right = sizeof(arr) / sizeof(arr[0])-1;//right是下标
-	int key = 16;
-	int result = BinarySearch( arr, left, right, key);
-	if (result == -1){
-		printf("找不到\n");
-	}
-	else {
-		printf("找到了，下标是：%d\n", result);
-	}
-	system("pause");
-	return 0;
-}
-
-
-
+//5.4可以一直接收键盘字符，如果是小写字符就输出对应的大写字符，如果接收的是大写字符，就输出对应的小写字符，如果是数字不输出。
+//#define _CRT_SECURE_NO_WARNINGS
+//#include <stdio.h>
+//#include <stdlib.h>
+//
+//int main(){
+//	char i;
+//	int j;
+//	printf("请输入一个字符：\n");
+//	//一直接收，创建一个循环
+//	while (1){
+//		//接收字符
+//		scanf("%c", &i);
+//		j = i;
+//		//小写=>大写
+//		if (j > 64 && j < 91){
+//			j += 32;
+//			printf("转换后：%c\n", j);
+//		}//大写=>小写
+//		else if (j>96 && j < 123){
+//			j -= 32;
+//			printf("转换后：%c\n", j);
+//		}
+//	}
+//
+//	system("pause");
+//	return 0;
+//}
 
 
 
