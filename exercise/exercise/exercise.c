@@ -212,30 +212,140 @@
 //	return 0;
 //}
 
-//练习****
+////练习****
+//#include <stdio.h>
+//#include <stdlib.h>
+//#include <string.h>
+//#include <Windows.h> //Sleep
+//
+//int main(){
+//	char str1[] = "hello good girl!";
+//	char str1[] = "****************";
+//	int left = 0; //该下标指向的元素为 w
+//	int right = strlen(str1) - 1; //该下标指向的元素为 ！
+//
+//	printf("%s\n", str2);
+//	while (left <= right){
+//		Sleep(100); //休眠100毫秒
+//		str2[left] = str1[left];
+//		str2[right] = str1[right];
+//		printf("%s\n", str2);
+//		left++;
+//		right--;
+//	}
+//
+//	system("pause");
+//	return 0;
+//}
+
+//5.1猜数字
+//#define _CRT_SECURE_NO_WARNINGS
+//#include <stdio.h>
+//#include <stdlib.h>
+//
+//int Menu(){
+//	int choice;
+//	printf("**************************\n");
+//	printf("********1.开始游戏********\n");
+//	printf("********2.结束游戏********\n");
+//	printf("**************************\n");
+//	printf("请选择是否开始游戏:");
+//	scanf("%d", &choice);
+//	return choice;
+//}
+//
+//void Game(){
+//	//计算机生成随机数
+//	int result = rand( ) % 100 + 1;
+//	//让用户输入所猜数字
+//	int num;
+//	printf("请输入一个数字:\n");
+//	while (1){
+//		scanf("%d", &num);
+//		if (num > result){
+//			printf("您猜的数字大了\n");
+//		}
+//		else if (num < result){
+//			printf("您猜的数字小了\n");
+//		}
+//		else{
+//			printf("恭喜你猜对了\n");
+//		}
+//	}
+//}
+//
+//int main(){
+//	//创建一个循环
+//	while (1){
+//		//打印菜单，供用户选择
+//		int choice=Menu();
+//		//若用户选择进入游戏，则开始游戏
+//		if (choice == 1){
+//			Game();
+//		}//若用户选择退出游戏，则结束循环
+//		else if (choice == 2){
+//			break;
+//		}//若用户输入错误
+//		else{
+//			printf("您的输入有误，请重新输入\n");
+//			break;
+//		}
+//	}
+//	system("pause");
+//	return 0;
+//}
+
+//5.2折半查找
+#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
-#include <Windows.h> //Sleep
+
+int BinarySearch(int arr[],int left,int right,int key){
+	int mid;
+
+	while (left < right){
+		//折半查找：中间数=头加尾/2
+		mid = (left + right) / 2;
+		//若大于所求数，则尾的下标改为中间数-1
+		if (arr[mid]>key){   
+			right = mid - 1;
+		}//若小于所求数，则头的下标改为中间数+1
+		else if (arr[mid]<key){
+			left = mid + 1;
+		}
+		else{
+			return mid;
+		}
+	}
+	return -1;
+}
 
 int main(){
-	char str1[] = "hello good girl!";
-	char str1[] = "****************";
-	int left = 0; //该下标指向的元素为 w
-	int right = strlen(str1) - 1; //该下标指向的元素为 ！
-
-	printf("%s\n", str2);
-	while (left <= right){
-		Sleep(100); //休眠100毫秒
-		str2[left] = str1[left];
-		str2[right] = str1[right];
-		printf("%s\n", str2);
-		left++;
-		right--;
+	int arr[] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15 };
+	int left = 0;
+	int right = sizeof(arr) / sizeof(arr[0])-1;//right是下标
+	int key = 16;
+	int result = BinarySearch( arr, left, right, key);
+	if (result == -1){
+		printf("找不到\n");
 	}
-
+	else {
+		printf("找到了，下标是：%d\n", result);
+	}
 	system("pause");
 	return 0;
 }
 
-//9.29
+
+
+
+
+
+//#define _CRT_SECURE_NO_WARNINGS
+//#include <stdio.h>
+//#include <stdlib.h>
+//
+//int main(){
+//	system("pause");
+//	return 0;
+//}
