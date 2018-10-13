@@ -339,65 +339,64 @@
 //}
 
 //5.1优化
-#define _CRT_SECURE_NO_WARNINGS
-#include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
-
-int Menu(){
-	int choice;
-	printf("**************************\n");
-	printf("********1.开始游戏********\n");
-	printf("********2.结束游戏********\n");
-	printf("**************************\n");
-	printf("请选择是否开始游戏:");
-	scanf("%d", &choice);
-	return choice;
-}
-
-void Game(){
-	//设置随机种子
-	srand(time(NULL));
-	//计算机生成随机数
-		int result = rand() % 100 + 1;
-	//让用户输入所猜数字
-		int num;
-	printf("请输入一个数字:\n");
-	while (1){
-		scanf("%d", &num);
-		if (num > result){
-			printf("您猜的数字大了\n");
-		}
-		else if (num < result){
-			printf("您猜的数字小了\n");
-		}
-		else{
-			printf("恭喜你猜对了\n");
-		}
-	}
-}
-
-int main(){
-	//创建一个循环
-	while (1){
-		//打印菜单，供用户选择
-			int choice = Menu();
-		//若用户选择进入游戏，则开始游戏
-		if (choice == 1){
-			Game();
-			break;
-		}//若用户选择退出游戏，则结束循环
-		else if (choice == 2){
-			break;
-		}//若用户输入错误
-		else{
-			printf("您的输入有误，请重新输入\n");
-			break;
-		}
-	}
-	system("pause");
-	return 0;
-}
+//#define _CRT_SECURE_NO_WARNINGS
+//#include <stdio.h>
+//#include <stdlib.h>
+//#include <time.h>
+//
+//int Menu(){
+//	int choice;
+//	printf("**************************\n");
+//	printf("********1.开始游戏********\n");
+//	printf("********2.结束游戏********\n");
+//	printf("**************************\n");
+//	printf("请选择是否开始游戏:");
+//	scanf("%d", &choice);
+//	return choice;
+//}
+//
+//void Game(){
+//	//设置随机种子
+//	srand(time(NULL));
+//	//计算机生成随机数
+//		int result = rand() % 100 + 1;
+//	//让用户输入所猜数字
+//		int num;
+//	printf("请输入一个数字:\n");
+//	while (1){
+//		scanf("%d", &num);
+//		if (num > result){
+//			printf("您猜的数字大了\n");
+//		}
+//		else if (num < result){
+//			printf("您猜的数字小了\n");
+//		}
+//		else{
+//			printf("恭喜你猜对了\n");
+//		}
+//	}
+//}
+//
+//int main(){
+//	//创建一个循环
+//	while (1){
+//		//打印菜单，供用户选择
+//			int choice = Menu();
+//		//若用户选择进入游戏，则开始游戏
+//		if (choice == 1){
+//			Game();
+//		}//若用户选择退出游戏，则结束循环
+//		else if (choice == 2){
+//			break;
+//		}//若用户输入错误
+//		else{
+//			printf("您的输入有误，请重新输入\n");
+//			break;
+//		}
+//	}
+//	system("pause");
+//	return 0;
+//}
 
 //5.2折半查找
 //#include <stdio.h>
@@ -495,6 +494,75 @@ int main(){
 //	system("pause");
 //	return 0;
 //}
+
+////10.11练习
+//#include <stdio.h>
+//#include <stdlib.h>
+//
+//void Swap(int* x, int* y){    //x变量类型为int型指针
+//	int tmp;
+//	tmp = *x;     //解引用
+//	*x = *y;
+//	*y = tmp;
+//	printf("a=%X \nb=%X\n", x, y);
+//}
+//
+//int main(){
+//	int a = 10;
+//	int b = 20;
+//	Swap(&a, &b);
+//	printf("a=%d  地址为%p\nb=%d  地址为%p\n", a, &a, b, &b);
+//	system("pause");
+//	return 0;
+//}
+
+//10.11输出型参数
+//#include <stdio.h>
+//#include <stdlib.h>
+//
+//int Divide(int x, int y, int* success){
+//	if (y == 0){
+//		success = 0;
+//		return 0;
+//	}
+//	success = 1;
+//	return x/y;
+//}
+//
+//int main(){
+//	int success=0;
+//	int ret = Divide(10, 2,&success);
+//	printf("ret=%d,success=%d\n", ret,success);
+//	system("pause");
+//	return 0;
+//}
+
+//10.11函数递归
+//接受一个整型值（无符号），按照顺序打印它的每一位。 例如： 输入：1234，输出 1 2 3 4.
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+#include <stdlib.h>
+
+void Print(int x){
+	if (x > 9){    //x不是个位数
+		Print( x / 10);
+	}
+	printf("%d  ", x % 10);
+}
+
+int main(){
+	int i;
+	printf("请输入一个数：\n");
+	scanf("%d", &i);
+	Print(i);
+	printf("\n");
+	system("pause");
+	return 0;
+}
+
+
+
+
 
 
 
