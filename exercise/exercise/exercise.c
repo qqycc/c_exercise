@@ -25,6 +25,49 @@
 //	return 0;
 //}
 
+//4.1改进
+//#define _CRT_SECURE_NO_WARNINGS
+//#include <stdio.h>
+//#include <stdlib.h>
+//
+//void Print(int i,int j){
+//	for (int a = 0; a < i; a++)
+//		printf(" ");
+//	for (int b = 0; b < j; b++)
+//		printf("*");
+//	    printf("\n");
+//}
+//
+//void LingXing(int n){
+//	//打印菱形
+//	//设最宽的一行为第n行，则
+//	//第一行有n-1个空格，1个*
+//	//第二行有n-2个空格，3个*
+//	//第三行有n-3个空格，5个*
+//	//   ......
+//	//即：第i行有n-i个空格，2*i-1个*
+//	
+//	//将菱形分为上中下两个部分
+//	int i = 1;
+//	for (i; i < n; i++){
+//		Print(n - i, 2 *i -1);//上
+//	}
+//	Print(0 , 2 *n - 1);//中
+//	i -= 1;
+//	for (i; i > 0; i--){
+//		Print(n - i, 2 * i - 1);//下
+//	}
+//}
+//
+//int main(){
+//	int n;
+//	printf("请输入一个奇数：\n");
+//	scanf("%d", &n);
+//	LingXing(n);
+//	system("pause");
+//	return 0;
+//}
+
 //练习4.2
 //#include <stdio.h>
 //#include <stdlib.h>
@@ -294,6 +337,67 @@
 //	system("pause");
 //	return 0;
 //}
+
+//5.1优化
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int Menu(){
+	int choice;
+	printf("**************************\n");
+	printf("********1.开始游戏********\n");
+	printf("********2.结束游戏********\n");
+	printf("**************************\n");
+	printf("请选择是否开始游戏:");
+	scanf("%d", &choice);
+	return choice;
+}
+
+void Game(){
+	//设置随机种子
+	srand(time(NULL));
+	//计算机生成随机数
+		int result = rand() % 100 + 1;
+	//让用户输入所猜数字
+		int num;
+	printf("请输入一个数字:\n");
+	while (1){
+		scanf("%d", &num);
+		if (num > result){
+			printf("您猜的数字大了\n");
+		}
+		else if (num < result){
+			printf("您猜的数字小了\n");
+		}
+		else{
+			printf("恭喜你猜对了\n");
+		}
+	}
+}
+
+int main(){
+	//创建一个循环
+	while (1){
+		//打印菜单，供用户选择
+			int choice = Menu();
+		//若用户选择进入游戏，则开始游戏
+		if (choice == 1){
+			Game();
+			break;
+		}//若用户选择退出游戏，则结束循环
+		else if (choice == 2){
+			break;
+		}//若用户输入错误
+		else{
+			printf("您的输入有误，请重新输入\n");
+			break;
+		}
+	}
+	system("pause");
+	return 0;
+}
 
 //5.2折半查找
 //#include <stdio.h>
