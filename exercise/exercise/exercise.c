@@ -539,28 +539,103 @@
 
 //10.11函数递归
 //接受一个整型值（无符号），按照顺序打印它的每一位。 例如： 输入：1234，输出 1 2 3 4.
+//#define _CRT_SECURE_NO_WARNINGS
+//#include <stdio.h>
+//#include <stdlib.h>
+//
+//void Print(int x){
+//	if (x > 9){    //x不是个位数
+//		Print( x / 10);
+//	}
+//	printf("%d ", x % 10);
+//}
+//
+//int main(){
+//	int i;
+//	printf("请输入一个数：\n");
+//	scanf("%d", &i);
+//	Print(i);
+//	printf("\n");
+//	system("pause");
+//	return 0;
+//}
+
+//字符串的长度
+//#include <stdio.h>
+//#include <stdlib.h>
+//#include <string.h>
+//
+//int strlen(char* str){
+//	//str指向的是一个空字符串
+//	if (*str == '\0'){
+//		return 0;
+//	}
+//	//str指向的不是一个空字符串，当前字符是字符串中的一个元素
+//	return 1+strlen(1+str);
+//}
+//
+//int main(){
+//	int length = strlen("bonjour!");
+//	printf("bonjour!占%d个字符\n", length);
+//	system("pause");
+//	return 0;
+//}
+
+////求阶乘
+//#define _CRT_SECURE_NO_WARNINGS
+//#include <stdio.h>
+//#include <stdlib.h>
+//
+//int Factorial(int n){
+//	int num;
+//	if (n == 1){
+//		return 1;
+//	}
+//	num = n*Factorial(n - 1);
+//	return num;
+//}
+//
+//int main(){
+//	int n;
+//	printf("请输入项数：\n");
+//	scanf("%d", &n);
+//	int num = Factorial(n);
+//	printf("第%d项的阶乘是：%d\n",n, num);
+//	system("pause");
+//	return 0;
+//}
+
+//6.1
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include <stdlib.h>
 
-void Print(int x){
-	if (x > 9){    //x不是个位数
-		Print( x / 10);
+int Fibonacci(int n){
+	int num;
+	int i = 1;
+	int j = 1;
+	int count = 3;
+	if (n == 1 || n == 2){
+		return 1;
 	}
-	printf("%d  ", x % 10);
+	for (count; count <= n; count++){
+		num = i + j;
+		i = j;
+		j = num;
+	}
+	return num;
 }
 
 int main(){
-	int i;
-	printf("请输入一个数：\n");
-	scanf("%d", &i);
-	Print(i);
-	printf("\n");
+	int num;
+	int n;
+	printf("请输入项数：\n");
+	scanf("%d", &n);
+	num = Fibonacci(n);
+	printf("第%d个斐波那契数为：%d\n", n,num);
 	system("pause");
 	return 0;
 }
-
-
 
 
 
