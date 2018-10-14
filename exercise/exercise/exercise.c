@@ -606,37 +606,113 @@
 //}
 
 //6.1
+//#define _CRT_SECURE_NO_WARNINGS
+//#include <stdio.h>
+//#include <stdlib.h>
+//
+//int Fibonacci(int n){
+//	int num;
+//	int i = 1;
+//	int j = 1;
+//	int count = 3;
+//	if (n == 1 || n == 2){
+//		return 1;
+//	}
+//	for (count; count <= n; count++){
+//		num = i + j;
+//		i = j;
+//		j = num;
+//	}
+//	return num;
+//}
+//
+//int main(){
+//	int num;
+//	int n;
+//	printf("请输入项数：\n");
+//	scanf("%d", &n);
+//	num = Fibonacci(n);
+//	printf("第%d个斐波那契数为：%d\n", n,num);
+//	system("pause");
+//	return 0;
+//}
+
+//汉诺塔问题
+//#define _CRT_SECURE_NO_WARNINGS
+//#include <stdio.h>
+//#include <stdlib.h>
+////在一块铜板装置上，有三根杆(编号A、B、C)，
+////在A杆自下而上、由大到小按顺序放置n个金盘。
+////游戏的目标:把A杆上的金盘全部移到C杆上，并仍保持原有顺序叠好。
+////操作规则 : 每次只能移动一个盘子，并且在移动过程中三根杆上都始终保持大盘在下，小盘在上
+////操作过程中盘子可以置于A、B、C任一杆上。
+//
+//void HanoiTower(int n){
+//	printf("第%d步，将%");
+//}
+//
+//int main(){
+//	int n; //盘子数
+//	printf("请输入盘子数：\n");
+//	scanf("%d", &n);
+//	HanoiTower(n);
+//
+//	system("pause");
+//	return 0;
+//}
+
+//6.2一个函数实现n^k
+//#define _CRT_SECURE_NO_WARNINGS
+//#include <stdio.h>
+//#include <stdlib.h>
+//
+//double Power(double n, double k){
+//	if (k == 0){
+//		return 1;
+//	}
+//	if (n == 0){
+//		return 0;
+//	}
+//	if (k > 0){
+//		return  n*Power(n, k - 1);
+//	}
+//	if (k < 0){
+//		return Power(n, k + 1) / n;
+//	}
+//}
+//
+//int main(){
+//	double n, k;
+//	printf("请输入底数和指数：\n");
+//	scanf("%lf %lf", &n, &k);
+//	double num=Power(n, k);
+//	printf("以%.0lf为底数，%.0lf为指数的幂=%lf\n", n, k, num);
+//	system("pause");
+//	return 0;
+//}
+	
+//6.3DigitSum(n)
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include <stdlib.h>
 
-int Fibonacci(int n){
-	int num;
-	int i = 1;
-	int j = 1;
-	int count = 3;
-	if (n == 1 || n == 2){
-		return 1;
+int Add(int num){
+	if (num < 9){
+		return num;
 	}
-	for (count; count <= n; count++){
-		num = i + j;
-		i = j;
-		j = num;
-	}
-	return num;
+	return num % 10+Add(num/10);
 }
 
 int main(){
 	int num;
-	int n;
-	printf("请输入项数：\n");
-	scanf("%d", &n);
-	num = Fibonacci(n);
-	printf("第%d个斐波那契数为：%d\n", n,num);
+	printf("请输入一个数字：\n");
+	scanf("%d", &num);
+	int add = Add(num);
+	printf("该数字各位加起来的数字之和为：%d\n", add);
 	system("pause");
 	return 0;
 }
-
+	
 
 
 
