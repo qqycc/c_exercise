@@ -692,27 +692,72 @@
 //}
 	
 //6.3DigitSum(n)
+//#define _CRT_SECURE_NO_WARNINGS
+//#include <stdio.h>
+//#include <stdlib.h>
+//
+//int Add(int num){
+//	if (num < 9){
+//		return num;
+//	}
+//	return num % 10+Add(num/10);
+//}
+//
+//int main(){
+//	int num;
+//	printf("请输入一个数字：\n");
+//	scanf("%d", &num);
+//	int add = Add(num);
+//	printf("该数字各位加起来的数字之和为：%d\n", add);
+//	system("pause");
+//	return 0;
+//}
+	
+//6.4
+//#define _CRT_SECURE_NO_WARNINGS
+//#include <stdio.h>
+//#include <stdlib.h>
+//
+//int StringLength(char* str){
+//	if (*str == '\0'){
+//		return 0;
+//	}
+//	return 1 + StringLength(str+1);
+//}
+//
+//void ReverseString(char* str){
+//	int len = StringLength(str);
+//	//第一个字符与最后一个字符交换
+//	//交换后，令最后一个字符为'/0',递归调用，再将最后一个字符附上第一个字符
+//	if (str != 0){
+//		char tmp;
+//		tmp = str[0];
+//		str[0] = str[len - 1];
+//		str[len - 1] = '\0';
+//		ReverseString(str + 1);
+//		str[len - 1] = tmp;
+//	}
+//}
+//
+//int main(){
+//	char arr[1024] = { 0 };
+//	printf("请输入字符串：\n");
+//	scanf("%s", &arr);
+//	ReverseString(arr);
+//	printf("字符串中的字符反向排列为：\n%s\n", arr);
+//	system("pause");
+//	return 0;
+//}
+
+//6.7
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include <stdlib.h>
 
-int Add(int num){
-	if (num < 9){
-		return num;
-	}
-	return num % 10+Add(num/10);
-}
-
 int main(){
-	int num;
-	printf("请输入一个数字：\n");
-	scanf("%d", &num);
-	int add = Add(num);
-	printf("该数字各位加起来的数字之和为：%d\n", add);
 	system("pause");
 	return 0;
 }
-	
 
 
 
