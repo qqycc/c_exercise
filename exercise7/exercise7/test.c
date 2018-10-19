@@ -37,52 +37,61 @@
 //}
 
 //2.获取一个数二进制序列中所有的偶数位和奇数位， 分别输出二进制序列。
-//#define _CRT_SECURE_NO_WARNINGS
-//#include <stdio.h>
-//#include <stdlib.h>
-//
-////1.将数字转化为二进制
-////2.由于二进制数是由数字对2反向取模，
-////即取模后得到的第奇数个数字为偶数位（偶数同理）
-//
-//void Sequence(int num){
-//	int arro[32] = { 0 };
-//	int arre[32] = { 0 };
-//	int i = 0;
-//	int j ;
-//	int count = 0;
-//	while (num != 0){
-//		int Odd = num % 2;
-//		if (count % 2 == 0){
-//			arro[i] = Odd;
-//			i++;
-//		}
-//		else{
-//			arre[i] = Odd;
-//			i++;
-//		}
-//		count++;
-//		num /= 2;
-//	}
-//	printf("二进制奇数位序列为:\n");
-//	for (j=0; j <= i; j++){
-//		printf("%d ", arro[j]);
-//	}
-//	printf("\n二进制偶数位序列为:\n", arre);
-//	for (j=0; j <= i; j++){
-//		printf("%d ", arre[j]);
-//	}
-//	printf("\n");
-//}
-//
-//int main(){
-//	int num;
-//	printf("请输入一个数字：\n");
-//	scanf("%d", &num);
-//	Sequence(num);
-//	system("pause");
-//	return 0;
-//}
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+#include <stdlib.h>
+
+//1.将数字转化为二进制
+//2.由于二进制数是由数字对2反向取模，
+//即取模后得到的第奇数个数字为偶数位（偶数同理）
+
+void Sequence(int num){
+	int num1 = num;
+	int arr[16] = { 0 };
+	int i = 0;
+	//将反向的二进制存放在arr[ ]中
+	while (i<16){
+		arr[i]= num % 2;
+		i++;
+		num /= 2;
+	}
+	//将二进制正向存放
+	int len = sizeof(arr) / sizeof(arr[0]);
+	int j;
+	int k = 1;
+	int temp;
+	for (j=0; j <8; j++){
+		temp = arr[j];
+		arr[j] = arr[len - k];
+		arr[len - k] = temp;
+		k++;
+	}
+	printf("%d的二进制为：\n",num1);
+	for (j = 0; j < 16; j ++){
+		printf("%d", arr[j]);
+	}
+	printf("\n");
+	//取奇数部分并打印
+    printf("二进制奇数位序列为:\n");
+	for (j=0; j < 16; j+=2){
+		printf("%d", arr[j]);
+	}
+	//取偶数部分并打印
+	printf("\n二进制偶数位序列为:\n");
+	for (j=1; j <16; j+=2){
+		printf("%d", arr[j]);
+	}
+	printf("\n");
+}
+
+int main(){
+	int num;
+	printf("请输入一个数字：\n");
+	scanf("%d", &num);
+	Sequence(num);
+	system("pause");
+	return 0;
+}
 
 //3.输出一个整数的每一位。
 //#define _CRT_SECURE_NO_WARNINGS
@@ -108,46 +117,45 @@
 //}
 
 //4.两个int（32位）整数m和n的二进制表达中，有多少个位(bit)不同？ 
-#define _CRT_SECURE_NO_WARNINGS
-#include <stdio.h>
-#include <stdlib.h>
-
-//将数转化为反向的二进制
-int Trans(int num){
-	int arr[32] = { 0 };
-	int i = 0;
-	while (i<32){
-		arr[i] = num % 2;
-		i++;
-		num /= 2;
-	}
-	return num;
-}
-
-int Compare(int num1,int num2){
-	int count = 0;
-	while (num1>0 && num2 > 0){
-		if (num1 % 10 != num2 % 10){
-			count++;
-		}
-		num1 /= 10;
-		num2 /= 10;
-	}
-	
-	return count;
-}
-
-int main(){
-	int num1;
-	int num2;
-	printf("请输入两个数字：\n");
-	scanf("%d %d", &num1, &num2);
-	//int new_num1=Trans(num1);
-	//int new_num2 = Trans(num2);
-	printf("有%d位(bit)不同\n",Compare(num1, num2));
-	system("pause");
-	return 0;
-}
+//#define _CRT_SECURE_NO_WARNINGS
+//#include <stdio.h>
+//#include <stdlib.h>
+//
+////将数转化为反向的二进制
+//int Trans(int num){
+//	int arr[32] = { 0 };
+//	int i = 0;
+//	while (i<32){
+//		arr[i] = num % 2;
+//		i++;
+//		num /= 2;
+//	}
+//	return num;
+//}
+//
+//int Compare(int num1,int num2){
+//	int count = 0;
+//	while (num1>0 && num2 > 0){
+//		if (num1 % 10 != num2 % 10){
+//			count++;
+//		}
+//		num1 /= 10;
+//		num2 /= 10;
+//	}
+//	return count;
+//}
+//
+//int main(){
+//	int num1;
+//	int num2;
+//	printf("请输入两个数字：\n");
+//	scanf("%d %d", &num1, &num2);
+//	//int new_num1=Trans(num1);
+//	//int new_num2 = Trans(num2);
+//	printf("有%d位(bit)不同\n",Compare(num1, num2));
+//	system("pause");
+//	return 0;
+//}
 
 
 
