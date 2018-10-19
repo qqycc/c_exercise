@@ -1,49 +1,47 @@
 //选择排序
-#define _CRT_SECURE_NO_WARNINGS
-#include <stdio.h>
-#include <stdlib.h>
-
-//交换函数
-int Swap(int* num1, int* num2){
-	int temp;
-	temp = *num1;
-	*num1 = *num2;
-	*num2 = temp;
-}
-
-//将最小的数筛选出来，置于数组的首
-int SelectionSort(int arr[ ],int size){
-	//arr[size-1]与arr[size-2]进行比较，较小的数放在size-2处
-	//同理，arr[size-2]与arr[size-3]进行比较，较小的数放在size-3处
-	//以此类推
-
-	//设置一个边界，[0,border]已排序部分，[border,size]未排序部分
-	int border = 0;
-	for (border; border<size;border++){
-		//循环一轮，将一个最小的数置于最前
-		int cur = size - 1;
-		for (cur; cur > border; cur--){
-			if (arr[cur] < arr[cur - 1]){
-				Swap(&arr[cur], &arr[cur - 1]);
-			}
-		}
-	}
-	return  arr;
-}
-
-int main(){
-	int arr[] = { 9, 8, 7, 4, 2, 3, 5, 1, 6, 10 };
-	int len = sizeof(arr) / sizeof(arr[0]);
-	SelectionSort(arr, len) ;
-	int i = 0;
-	for (i; i < len; i++){
-		printf("%d ", arr[i]);
-	}
-	system("pause");
-	return 0;
-}
-
-
+//#define _CRT_SECURE_NO_WARNINGS
+//#include <stdio.h>
+//#include <stdlib.h>
+//
+////交换函数
+//int Swap(int* num1, int* num2){
+//	int temp;
+//	temp = *num1;
+//	*num1 = *num2;
+//	*num2 = temp;
+//}
+//
+////将最小的数筛选出来，置于数组的首
+//int SelectionSort(int arr[ ],int size){
+//	//arr[size-1]与arr[size-2]进行比较，较小的数放在size-2处
+//	//同理，arr[size-2]与arr[size-3]进行比较，较小的数放在size-3处
+//	//以此类推
+//
+//	//设置一个边界，[0,border]已排序部分，[border,size]未排序部分
+//	int border = 0;
+//	for (border; border<size;border++){
+//		//循环一轮，将一个最小的数置于最前
+//		int cur = size - 1;
+//		for (cur; cur > border; cur--){
+//			if (arr[cur] < arr[cur - 1]){
+//				Swap(&arr[cur], &arr[cur - 1]);
+//			}
+//		}
+//	}
+//	return  arr;
+//}
+//
+//int main(){
+//	int arr[] = { 9, 8, 7, 4, 2, 3, 5, 1, 6, 10 };
+//	int len = sizeof(arr) / sizeof(arr[0]);
+//	SelectionSort(arr, len) ;
+//	int i = 0;
+//	for (i; i < len; i++){
+//		printf("%d ", arr[i]);
+//	}
+//	system("pause");
+//	return 0;
+//}
 
 //1.返回参数二进制中 1 的个数 
 //#define _CRT_SECURE_NO_WARNINGS
