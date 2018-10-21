@@ -392,8 +392,8 @@
 
 #define CHESS_ROW 5
 #define CHESS_COL 5
-#define ROW 3
-#define COL 3
+#define ROW 5
+#define COL 5
 
 //定义全局变量
 char g_chessboard[CHESS_ROW][CHESS_COL];
@@ -482,9 +482,11 @@ char Check(){
 		for (int col = 0; col < CHESS_COL; col++){
 			if (g_chessboard[row][col] == 'x'){
 				countp++;
+				continue;
 			}
 			if (g_chessboard[row][col] == 'o'){
 				countc++;
+				continue;
 			}
 		}
 		if (countp == ROW){
