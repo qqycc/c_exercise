@@ -163,24 +163,247 @@
 //	return 0;
 //}
 
-//三子棋
+//N子棋
+//#define _CRT_SECURE_NO_WARNINGS
+//#include <stdio.h>
+//#include <stdlib.h>
+//#include <time.h>
+//
+//#define ROW 3
+//#define COL 3
+//
+////定义全局变量
+//char g_chessboard[ROW][COL];
+//
+//void Initialize(){
+//	//初始化棋盘
+//	int row;
+//	int col;
+//	for (row=0; row < ROW; row++){
+//		for (col=0; col < COL; col++){
+//			g_chessboard[row][col] = ' ';
+//		}
+//	}
+//}
+//
+//void Print(){
+//	//打印棋盘
+//	int row ;
+//	int col;
+//	for (row=0; row < ROW; row++){
+//		for (col=0; col < COL; col++){
+//			printf("| %c ", g_chessboard[row][col]);
+//		}
+//		printf("|\n");
+//		if (row != ROW - 1){
+//			for (col = 0; col < COL; col++){
+//				printf("|---");
+//			}
+//			printf("|\n");
+//		}
+//	}
+//}
+//
+//void Player(){
+//	//玩家落子
+//	while (1){
+//		int row;
+//		int col;
+//		printf("请输入落子位置（row col）:\n");
+//		scanf("%d %d", &row, &col);
+//		if (row >=ROW || row<0 || col>=COL || col < 0){
+//			printf("您的输入有误，请重新输入\n");
+//			continue;
+//		}
+//		if (g_chessboard[row][col] != ' '){
+//			printf("此位置已被占有，请重新输入\n");
+//			continue;
+//		}
+//		g_chessboard[row][col] = 'x';
+//		break;
+//	}
+//}
+//
+//void Computer(){
+//	printf("电脑落子：\n");
+//	int row = 0;
+//	int col = 0;
+//	srand(time(0));
+//	while (1){
+//		row = rand( ) % ROW;
+//		col = rand( ) % COL;
+//		//若位置没有被占用，落子
+//		if (g_chessboard[row][col] == ' '){
+//			g_chessboard[row][col] = 'o';
+//			break;
+//		}
+//	}
+//}
+//
+//int IsFull(){
+//	for (int row = 0; row < ROW; row++){
+//		for (int col = 0; col < COL; col++){
+//			if (g_chessboard[row][col] == ' '){
+//				return 0;
+//			}
+//		}
+//	}
+//	return 1;
+//}
+//
+//char Check(){
+//	//检查行
+//	for (int row = 0; row < ROW; row++){
+//		int countp = 0;
+//		int countc = 0;
+//		for (int col = 0; col < COL; col++){
+//			if (g_chessboard[row][col] == 'x'){
+//				countp ++;
+//			}
+//			if (g_chessboard[row][col] == 'o'){
+//				countc ++;
+//			}
+//		}
+//		if (countp == ROW){
+//			return 'x';
+//			break;
+//		}
+//		if (countc == ROW){
+//			return  'o';
+//			break;
+//		}
+//	}
+//	//检查列
+//	for (int col = 0; col < COL; col++){
+//		int countp = 0;
+//		int countc = 0;
+//		for (int row = 0; row < ROW; row++){
+//			if (g_chessboard[row][col] == 'x'){
+//				countp ++;
+//			}
+//			else if (g_chessboard[row][col] == 'o'){
+//				countc ++;
+//			}
+//		}
+//		if (countp == COL){
+//			return  'x';
+//			break;
+//		}
+//		else if (countc == COL){
+//			return 'o';
+//			break;
+//		}
+//	}
+//	//检查对角线
+//	int row = 0;
+//	int col = 0;
+//    int countp = 0;
+//	int countc = 0;
+//	//左上角开始的对角线
+//	while (row < ROW){
+//		if (g_chessboard[row][col] == 'x'){
+//			countp++;
+//		}
+//		else if (g_chessboard[row][col] == 'o'){
+//			countc++;
+//		}
+//		row++;
+//		col++;
+//	}
+//	if (countp == ROW){
+//		return 'x';
+//	}
+//	else if (countc == ROW){
+//		return 'o';
+//	}
+//	//右上角开始的对角线
+//	countp = 0;
+//	countc = 0; 
+//	row = 0;
+//	col = COL-1;
+//	while (row<ROW){	
+//		if (g_chessboard[row][col] == 'x'){
+//			countp++;
+//		}
+//		else if (g_chessboard[row][col] == 'o'){
+//			countc++;
+//		}
+//		row++;
+//		col--;
+//	}
+//		if (countp == ROW){
+//			return 'x';
+//		}
+//		else if (countc == ROW){
+//			return 'o';
+//		}
+//	
+//	//检查棋盘是否已满
+//	if (IsFull()){
+//		return 'q';
+//	}
+//	return ' ';
+//}
+//
+//int main(){
+//	//1.棋盘初始化
+//	char winner = ' ';
+//	Initialize();
+//	while (1){
+//		//2.打印棋盘
+//		Print();
+//		//3.玩家落子，进行检验
+//		Player();
+//		winner = Check();
+//		//游戏结束
+//		if (winner != ' '){  
+//			Print();
+//			break;
+//		}
+//		//4.电脑落子，进行检验
+//		Computer();
+//		winner = Check();
+//		//游戏结束
+//		if (winner != ' '){
+//			Print();
+//			break;
+//		}
+//	}
+//	//5.判断胜负
+//	//用 x 代表玩家，o 代表电脑，q代表和棋
+//	if (winner == 'x'){
+//		printf("恭喜你获胜！\n");
+//	}
+//	else if (winner == 'o'){
+//		printf("啊哦，电脑获胜！\n");
+//	}
+//	else if (winner == 'q'){
+//		printf("和棋\n");
+//	}
+//	system("pause");
+//	return 0;
+//}
+
+//自定义棋盘大小的N子棋
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
 
+#define CHESS_ROW 5
+#define CHESS_COL 5
 #define ROW 3
 #define COL 3
 
 //定义全局变量
-char g_chessboard[ROW][COL];
+char g_chessboard[CHESS_ROW][CHESS_COL];
 
 void Initialize(){
 	//初始化棋盘
 	int row;
 	int col;
-	for (row=0; row < ROW; row++){
-		for (col=0; col < COL; col++){
+	for (row = 0; row < CHESS_ROW; row++){
+		for (col = 0; col < CHESS_COL; col++){
 			g_chessboard[row][col] = ' ';
 		}
 	}
@@ -188,15 +411,15 @@ void Initialize(){
 
 void Print(){
 	//打印棋盘
-	int row ;
+	int row;
 	int col;
-	for (row=0; row < ROW; row++){
-		for (col=0; col < COL; col++){
+	for (row = 0; row < CHESS_ROW; row++){
+		for (col = 0; col < CHESS_COL; col++){
 			printf("| %c ", g_chessboard[row][col]);
 		}
 		printf("|\n");
-		if (row != ROW - 1){
-			for (col = 0; col < COL; col++){
+		if (row != CHESS_ROW - 1){
+			for (col = 0; col < CHESS_COL; col++){
 				printf("|---");
 			}
 			printf("|\n");
@@ -211,7 +434,7 @@ void Player(){
 		int col;
 		printf("请输入落子位置（row col）:\n");
 		scanf("%d %d", &row, &col);
-		if (row >=ROW || row<0 || col>=COL || col < 0){
+		if (row >= CHESS_ROW || row<0 || col >= CHESS_COL || col < 0){
 			printf("您的输入有误，请重新输入\n");
 			continue;
 		}
@@ -230,8 +453,8 @@ void Computer(){
 	int col = 0;
 	srand(time(0));
 	while (1){
-		row = rand( ) % ROW;
-		col = rand( ) % COL;
+		row = rand() % CHESS_ROW;
+		col = rand() % CHESS_COL;
 		//若位置没有被占用，落子
 		if (g_chessboard[row][col] == ' '){
 			g_chessboard[row][col] = 'o';
@@ -241,8 +464,8 @@ void Computer(){
 }
 
 int IsFull(){
-	for (int row = 0; row < ROW; row++){
-		for (int col = 0; col < COL; col++){
+	for (int row = 0; row < CHESS_ROW; row++){
+		for (int col = 0; col < CHESS_COL; col++){
 			if (g_chessboard[row][col] == ' '){
 				return 0;
 			}
@@ -253,15 +476,15 @@ int IsFull(){
 
 char Check(){
 	//检查行
-	for (int row = 0; row < ROW; row++){
+	for (int row = 0; row < CHESS_ROW; row++){
 		int countp = 0;
 		int countc = 0;
-		for (int col = 0; col < COL; col++){
+		for (int col = 0; col < CHESS_COL; col++){
 			if (g_chessboard[row][col] == 'x'){
-				countp ++;
+				countp++;
 			}
 			if (g_chessboard[row][col] == 'o'){
-				countc ++;
+				countc++;
 			}
 		}
 		if (countp == ROW){
@@ -274,15 +497,15 @@ char Check(){
 		}
 	}
 	//检查列
-	for (int col = 0; col < COL; col++){
+	for (int col = 0; col < CHESS_COL; col++){
 		int countp = 0;
 		int countc = 0;
-		for (int row = 0; row < ROW; row++){
+		for (int row = 0; row < CHESS_ROW; row++){
 			if (g_chessboard[row][col] == 'x'){
-				countp ++;
+				countp++;
 			}
 			else if (g_chessboard[row][col] == 'o'){
-				countc ++;
+				countc++;
 			}
 		}
 		if (countp == COL){
@@ -297,10 +520,10 @@ char Check(){
 	//检查对角线
 	int row = 0;
 	int col = 0;
-    int countp = 0;
+	int countp = 0;
 	int countc = 0;
 	//左上角开始的对角线
-	while (row < ROW){
+	while (row < CHESS_ROW){
 		if (g_chessboard[row][col] == 'x'){
 			countp++;
 		}
@@ -318,10 +541,10 @@ char Check(){
 	}
 	//右上角开始的对角线
 	countp = 0;
-	countc = 0; 
+	countc = 0;
 	row = 0;
-	col = COL-1;
-	while (row<ROW){	
+	col = CHESS_COL- 1;
+	while (row<CHESS_ROW){
 		if (g_chessboard[row][col] == 'x'){
 			countp++;
 		}
@@ -331,13 +554,13 @@ char Check(){
 		row++;
 		col--;
 	}
-		if (countp == ROW){
-			return 'x';
-		}
-		else if (countc == ROW){
-			return 'o';
-		}
-	
+	if (countp == ROW){
+		return 'x';
+	}
+	else if (countc == ROW){
+		return 'o';
+	}
+
 	//检查棋盘是否已满
 	if (IsFull()){
 		return 'q';
@@ -356,7 +579,7 @@ int main(){
 		Player();
 		winner = Check();
 		//游戏结束
-		if (winner != ' '){  
+		if (winner != ' '){
 			Print();
 			break;
 		}
@@ -383,6 +606,7 @@ int main(){
 	system("pause");
 	return 0;
 }
+
 
 
 
