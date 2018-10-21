@@ -392,8 +392,8 @@
 
 #define CHESS_ROW 5
 #define CHESS_COL 5
-#define ROW 5
-#define COL 5
+#define ROW 3
+#define COL 3
 
 //定义全局变量
 char g_chessboard[CHESS_ROW][CHESS_COL];
@@ -413,14 +413,24 @@ void Print(){
 	//打印棋盘
 	int row;
 	int col;
+	//打印列数
+	printf("   ");
+	for (col = 0; col < CHESS_COL; col++){
+		printf("   %d ", col);
+	}
+	printf("\n");
+
 	for (row = 0; row < CHESS_ROW; row++){
+		//打印行号
+		printf("%02d  ", row);
 		for (col = 0; col < CHESS_COL; col++){
-			printf("| %c ", g_chessboard[row][col]);
+			printf("| %c  ", g_chessboard[row][col]);
 		}
 		printf("|\n");
+		printf("    ");
 		if (row != CHESS_ROW - 1){
 			for (col = 0; col < CHESS_COL; col++){
-				printf("|---");
+				printf("|----");
 			}
 			printf("|\n");
 		}
@@ -432,7 +442,7 @@ void Player(){
 	while (1){
 		int row;
 		int col;
-		printf("请输入落子位置（row col）:\n");
+		printf("\n请输入落子位置（row col）:\n");
 		scanf("%d %d", &row, &col);
 		if (row >= CHESS_ROW || row<0 || col >= CHESS_COL || col < 0){
 			printf("您的输入有误，请重新输入\n");
@@ -482,18 +492,19 @@ char Check(){
 		for (int col = 0; col < CHESS_COL; col++){
 			if (g_chessboard[row][col] == 'x'){
 				countp++;
-				continue;
 			}
-			if (g_chessboard[row][col] == 'o'){
+			else if (g_chessboard[row][col] == 'o'){
 				countc++;
-				continue;
+			}
+			else if (g_chessboard[row][col] == ' '){
+				countc = countp=0;
 			}
 		}
 		if (countp == ROW){
 			return 'x';
 			break;
 		}
-		if (countc == ROW){
+		else if (countc == ROW){
 			return  'o';
 			break;
 		}
@@ -508,6 +519,9 @@ char Check(){
 			}
 			else if (g_chessboard[row][col] == 'o'){
 				countc++;
+			}
+			else if (g_chessboard[row][col] == ' '){
+				countc = countp = 0;
 			}
 		}
 		if (countp == COL){
@@ -532,14 +546,19 @@ char Check(){
 		else if (g_chessboard[row][col] == 'o'){
 			countc++;
 		}
+		else if (g_chessboard[row][col] == ' '){
+			countc = countp = 0;
+		}
 		row++;
 		col++;
-	}
-	if (countp == ROW){
-		return 'x';
-	}
-	else if (countc == ROW){
-		return 'o';
+		if (countp == ROW){
+			return 'x';
+			break;
+		}
+		else if (countc == ROW){
+			return 'o';
+			break;
+		}
 	}
 	//右上角开始的对角线
 	countp = 0;
@@ -553,14 +572,19 @@ char Check(){
 		else if (g_chessboard[row][col] == 'o'){
 			countc++;
 		}
+		else if (g_chessboard[row][col] == ' '){
+			countc = countp = 0;
+		}
 		row++;
 		col--;
-	}
-	if (countp == ROW){
-		return 'x';
-	}
-	else if (countc == ROW){
-		return 'o';
+		if (countp == ROW){
+			return 'x';
+			break;
+		}
+		else if (countc == ROW){
+			return 'o'; 
+			break;
+		}
 	}
 
 	//检查棋盘是否已满
