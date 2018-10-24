@@ -162,8 +162,8 @@
 #include <string.h>
 #include <time.h>
 
-#define ROW 20
-#define COL 20
+#define ROW 10
+#define COL 10
 #define MINE_COUNT 15
 
 char mine_map[ROW + 2][COL + 2];
