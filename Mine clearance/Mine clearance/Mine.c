@@ -162,6 +162,13 @@
 #include <string.h>
 #include <time.h>
 
+#define ROW 10
+#define COL 10
+#define MINE_COUNT 15
+
+char mine_map[ROW + 2][COL + 2];
+char show_map[ROW + 2][COL + 2];
+
 int Menu(){
 	int choice=0;
 	printf("1.开始游戏\n");
@@ -171,16 +178,101 @@ int Menu(){
 	return choice;
 }
 
+void Initialize(char mine_map[ROW + 2][COL + 2],char show_map[ROW + 2][COL + 2]){
+	memset(mine_map, '0', (ROW+2)*(COL+2));
+	memset(show_map, '*', (ROW + 2)*(COL + 2));
+	//布置雷阵
+	srand(time(0));
+	int mine_count = MINE_COUNT;
+	while (mine_count > 0){
+		int row = rand() % (ROW-1) + 1;
+		int col = rand() % (COL-1) + 1;
+		if (mine_map[row][col] == '0'){
+			mine_map[row][col] = '1';
+			--mine_count;
+		}
+	}
+}
+
+void Print(char map[ROW + 2][COL + 2]){
+	printf("   ");
+	//打印列号
+	for (int col = 1; col <= COL; ++col){
+		printf(" %02d", col);
+	}
+	printf("\n");
+	//打印第二行
+	for (int col = 1; col <= COL; ++col){
+		printf("----");
+	}
+	printf("\n");
+	for (int row = 1; row <= ROW; ++row){
+		printf("%02d|", row);
+		for (int col = 1; col <= COL; ++col){
+			printf(" %c ", map[row][col]);
+		}
+		printf("\n");
+	}
+}
+
+void Update(char show_map[ROW + 2][COL + 2],char mine_map[ROW + 2][COL + 2], int row, int col){
+	int mine_count = 0;
+	mine_count = (mine_map[row - 1][col - 1] - '0')
+		+ (mine_map[row - 1][col] - '0')
+		+ (mine_map[row - 1][col + 1] - '0')
+		+ (mine_map[row][col - 1] - '0')
+		+ (mine_map[row][col + 1] - '0')
+		+ (mine_map[row + 1][col - 1] - '0')
+		+ (mine_map[row + 1][col] - '0')
+		+ (mine_map[row + 1][col + 1] - '0');
+	show_map[row][col] = '0' + mine_count;
+}
+
+void Game(){
+	int flip = 0;
+	//1.初始化地图
+	Initialize(mine_map, show_map);
+	//2.打印地图
+	Print(show_map);
+	while (1){
+		int row = 0;
+		int col = 0;
+		//1.提示用户输入位置
+		printf("请输入坐标（row，col）：\n");
+		scanf("%d %d", &row, &col);
+		//2.判断输入是否合法[1,ROW]
+		if (row <= 0 || row > ROW || col <= 0 || col > COL){
+			printf("您的输入有误，请重新输入：\n ");
+			continue;
+		}
+		//3.判断位置是否有雷
+		if (mine_map[row][col] == '1'){
+			Print(show_map);
+			printf("啊哦  您踩到雷了！！！\n");
+			break;
+		}
+		//没踩到，判断是否胜利
+		++flip;
+		if (flip == ROW*COL - MINE_COUNT){
+			Print(show_map);
+			printf("恭喜你，胜利啦！\n");
+			break;
+		}
+		//4.更新地图并打印
+		Update(show_map,mine_map,row,col);
+		Print(show_map);
+	}
+}
 
 void Start(){
 	while (1){
 		int choice = Menu();
-		if (choice == 0){
+		if (choice == 2){
 			printf("游戏结束！\n");
 			break;
 		}
+		Game();
 	}
-	Game();
 }
 
 int main(){
