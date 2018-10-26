@@ -2,12 +2,15 @@
 #include <stdlib.h>
 
 int main(){
-	int arr[5] = { 1,2,3,4,5 };
-	int* p = arr;
-	int* p1 = &arr[4];
-	printf("%p\n", p);
-	printf("%p\n", p1);
-	printf("%d\n", p1-p); //差了4个整形变量
+	int arr[5] = { 9,7,5,3,1};
+	int* p = &arr[0];
+	int* p1 = &arr[1];
+	if (p < p1){
+		printf("p<p1\n");
+	}
+	else{
+		printf("p>=p1\n");
+	}
 	system("pause");
 	return 0;
 	}
