@@ -1,39 +1,40 @@
-﻿#include <stdio.h>
+﻿#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
 #include <stdlib.h>
 
-//杨辉三角形
-//每一行的首元素和尾元素都为1
-//第n行有n个元素
-//arr[n+1][i]=arr[n][i]+arr[n][i-1]
-
-//打印到第N行
-#define N 10
-
-int main(){
-	int n;  //第n行
-	int i;  //每行第i个元素
-	int arr[N][N] = { 0 };
-	for (n = 0; n < N; ++n){
-		arr[n][n] = 1;
-		arr[n][0] = 1;
-	}
-	for (n = 2; n < N; ++n){
-		for (i = 1; i < n; ++i){
-			arr[n][i] = arr[n-1][i] + arr[n-1][i - 1];
-		}
-	}
-	for (n = 0; n < N;++n){
-		for (i = 0; i < (2 * N - 2 * n); ++i){
-			printf(" ");
-		}
-		for (i = 0; i <=n; ++i){
-			printf("%4d", arr[n][i]);
-		}
-		printf("\n");
-	}
-	system("pause");
-	return 0;
-}
+////杨辉三角形
+////每一行的首元素和尾元素都为1
+////第n行有n个元素
+////arr[n+1][i]=arr[n][i]+arr[n][i-1]
+//
+////打印到第N行
+//#define N 10
+//
+//int main(){
+//	int n;  //第n行
+//	int i;  //每行第i个元素
+//	int arr[N][N] = { 0 };
+//	for (n = 0; n < N; ++n){
+//		arr[n][n] = 1;
+//		arr[n][0] = 1;
+//	}
+//	for (n = 2; n < N; ++n){
+//		for (i = 1; i < n; ++i){
+//			arr[n][i] = arr[n-1][i] + arr[n-1][i - 1];
+//		}
+//	}
+//	for (n = 0; n < N;++n){
+//		for (i = 0; i < (2 * N - 2 * n); ++i){
+//			printf(" ");
+//		}
+//		for (i = 0; i <=n; ++i){
+//			printf("%4d", arr[n][i]);
+//		}
+//		printf("\n");
+//	}
+//	system("pause");
+//	return 0;
+//}
 
 ////A说：不是A
 ////B说：是C 
